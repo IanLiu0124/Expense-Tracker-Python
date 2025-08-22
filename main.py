@@ -13,29 +13,40 @@ except FileNotFoundError:
 except:
     expenses = []
 
+def clear_entries():
+    expense_description.delete(0, 'end') #from index 0 to end
+    expense_cost.delete(0, 'end')
+    date.set_date(datetime.date.today())
+    expense_comment.delete("1.0", "end") #First line, index 0
+    
 
 def expense_record():
-    expense_des = expense_description.get().strip()
-    # expense_val = float(expense_cost.get())
-    try:
-        expense_val = float(expense_cost.get())
-    except ValueError:
-        messagebox.showerror("Invalid input", "Please enter a valid number for the amount.")
-        return
-    expense_d = date.get()
-    comment = expense_comment.get("1.0","end").strip() or '' #the param ("1.0" = Line 1, character 0), "end" til the end of the textbox
+    if expense_description.get().strip() == "":
+        messagebox.showerror("Invalid Input", "Please enter description")
+    else:
+        expense_des = expense_description.get().strip()
+        try:
+            expense_val = float(expense_cost.get())
+        except ValueError:
+            messagebox.showerror("Invalid input", "Please enter a valid number for the amount.")
+            return
+        expense_d = date.get()
+        comment = expense_comment.get("1.0","end").strip() or '' #the param ("1.0" = Line 1, character 0), "end" til the end of the textbox
+        
+        new_expense = {} #initiate a dictionary
+        new_expense['Expense Description'] = expense_des
+        new_expense['Expense Cost'] = expense_val 
+        new_expense['Expense Date'] = expense_d
+        new_expense['Comment'] = comment
+        
+        expenses.append(new_expense)
+        with open("expenese.json", "w") as f:
+            json.dump(expenses, f, indent =4)
+        expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} - {new_expense['Expense Cost']}$")
+        
+    clear_entries()
     
-    new_expense = {} #initiate a dictionary
-    new_expense['Expense Description'] = expense_des
-    new_expense['Expense Cost'] = expense_val 
-    new_expense['Expense Date'] = expense_d
-    new_expense['Comment'] = comment
-    
-    expenses.append(new_expense)
-    with open("expenese.json", "w") as f:
-        json.dump(expenses, f, indent =4)
-    expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} - {new_expense['Expense Cost']}$")
-    
+
     # messagebox.showinfo('test', new_expense)
     
 
@@ -47,6 +58,11 @@ def expense_record():
     #     E.write(f"Expense: {expense_des} | {expense_val}$ | {expense_d}\n {new_expense}")
     #Using w will overwrite.
     #Using a will APPEND.
+
+
+
+def delete_expense():
+    return
 
 root = tk.Tk()
 root.title('Expense Tracker')
@@ -101,7 +117,11 @@ expense_list.pack(pady=2)
 
 #Inserting Exsisting Expenses to the list
 for expense in expenses:
-    expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} | {expense['Expense Cost']}$")
+    expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} - {expense['Expense Cost']}$")
+
+#Delete Button
+delete_button = tk.Button(root, text="Delete",command = delete_expense, relief="raised")
+delete_button.place(x=435, y= 265, width=70, height=30)
 
 
 root.mainloop()
