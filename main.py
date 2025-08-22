@@ -34,7 +34,7 @@ def expense_record():
     expenses.append(new_expense)
     with open("expenese.json", "w") as f:
         json.dump(expenses, f, indent =4)
-    expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} | {new_expense['Expense Cost']}$ | {new_expense['Comment']}")
+    expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} - {new_expense['Expense Cost']}$")
     
     # messagebox.showinfo('test', new_expense)
     
@@ -101,7 +101,7 @@ expense_list.pack(pady=2)
 
 #Inserting Exsisting Expenses to the list
 for expense in expenses:
-    expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} | {expense['Expense Cost']}$ | {expense['Comment']}")
+    expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} | {expense['Expense Cost']}$")
 
 
 root.mainloop()
