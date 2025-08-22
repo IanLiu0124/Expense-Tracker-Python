@@ -1,12 +1,52 @@
 from modules import *
 
+# with open("SampleResult.tSxt", "w", encoding="utf-8") as f:
+#     for field_name, value in result_set.items():
+#         f.write(f"{field_name}: {value}\n")
+
+try:
+    with open("expenese.json", "r") as j:
+        expenses = json.load(j)
+        #json.load(j) = 
+except FileNotFoundError:
+    expenses = []
+except:
+    expenses = []
+
 
 def expense_record():
-    expense_des = expense_description.get()
-    expense_val = expense_cost.get()
+    expense_des = expense_description.get().strip()
+    # expense_val = float(expense_cost.get())
+    try:
+        expense_val = float(expense_cost.get())
+    except ValueError:
+        messagebox.showerror("Invalid input", "Please enter a valid number for the amount.")
+        return
     expense_d = date.get()
+    comment = expense_comment.get("1.0","end").strip() or '' #the param ("1.0" = Line 1, character 0), "end" til the end of the textbox
+    
+    new_expense = {} #initiate a dictionary
+    new_expense['Expense Description'] = expense_des
+    new_expense['Expense Cost'] = expense_val 
+    new_expense['Expense Date'] = expense_d
+    new_expense['Comment'] = comment
+    
+    expenses.append(new_expense)
+    with open("expenese.json", "w") as f:
+        json.dump(expenses, f, indent =4)
+    expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} | {new_expense['Expense Cost']}$ | {new_expense['Comment']}")
+    
+    # messagebox.showinfo('test', new_expense)
     
 
+
+
+    #Writing to file
+    #----
+    # with open("Expenses.txt", "a", encoding="utf-8") as E:
+    #     E.write(f"Expense: {expense_des} | {expense_val}$ | {expense_d}\n {new_expense}")
+    #Using w will overwrite.
+    #Using a will APPEND.
 
 root = tk.Tk()
 root.title('Expense Tracker')
@@ -59,6 +99,9 @@ tk.Label(view_frame, text="Expenses").pack(pady=5)
 expense_list = tk.Listbox(view_frame, selectmode="single", width=40)
 expense_list.pack(pady=2)
 
+#Inserting Exsisting Expenses to the list
+for expense in expenses:
+    expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} | {expense['Expense Cost']}$ | {expense['Comment']}")
 
 
 root.mainloop()

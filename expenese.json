@@ -1,0 +1,14 @@
+[
+    {
+        "Expense Description": "Ticket",
+        "Expense Cost": "20",
+        "Expense Date": "08-21-25",
+        "Comment": "Waterpark Ticket"
+    },
+    {
+        "Expense Description": "Blahblah",
+        "Expense Cost": 200.0,
+        "Expense Date": "08-05-22",
+        "Comment": ""
+    }
+]
