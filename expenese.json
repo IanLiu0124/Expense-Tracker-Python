@@ -1,68 +1,20 @@
 [
     {
-        "Expense Description": "Ticket",
-        "Expense Cost": "20",
-        "Expense Date": "08-21-25",
-        "Comment": "Waterpark Ticket"
+        "Expense Description": "Gas",
+        "Expense Cost": 20.0,
+        "Expense Date": "08-23-25",
+        "Comment": "163"
     },
     {
-        "Expense Description": "Blahblah",
-        "Expense Cost": 200.0,
-        "Expense Date": "08-05-22",
-        "Comment": ""
+        "Expense Description": "Lunch",
+        "Expense Cost": 14.46,
+        "Expense Date": "08-23-25",
+        "Comment": "Donair"
     },
     {
-        "Expense Description": "Test Exepense 1",
-        "Expense Cost": 200.0,
-        "Expense Date": "08-22-25",
-        "Comment": ""
-    },
-    {
-        "Expense Description": "Test Expense 2",
-        "Expense Cost": 1000.0,
-        "Expense Date": "08-22-25",
-        "Comment": "dew"
-    },
-    {
-        "Expense Description": "Test Expense 3",
-        "Expense Cost": 123.0,
-        "Expense Date": "08-22-25",
-        "Comment": "123"
-    },
-    {
-        "Expense Description": "Test Expense 4",
-        "Expense Cost": 313.0,
-        "Expense Date": "08-22-25",
-        "Comment": "213"
-    },
-    {
-        "Expense Description": "Test Expense 5",
-        "Expense Cost": 12321.0,
-        "Expense Date": "08-22-25",
-        "Comment": "123"
-    },
-    {
-        "Expense Description": "231",
-        "Expense Cost": 32.0,
-        "Expense Date": "08-03-23",
-        "Comment": "132"
-    },
-    {
-        "Expense Description": "Expense 6",
-        "Expense Cost": 231.0,
-        "Expense Date": "08-22-25",
-        "Comment": "421323123"
-    },
-    {
-        "Expense Description": "Expense 7",
-        "Expense Cost": 1123.0,
-        "Expense Date": "08-22-25",
-        "Comment": ""
-    },
-    {
-        "Expense Description": "Expense 8",
-        "Expense Cost": 1232.0,
-        "Expense Date": "08-22-25",
+        "Expense Description": "House",
+        "Expense Cost": 2000.0,
+        "Expense Date": "08-24-25",
         "Comment": ""
     }
 ]
