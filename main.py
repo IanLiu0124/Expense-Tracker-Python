@@ -4,14 +4,14 @@ from modules import *
 #     for field_name, value in result_set.items():
 #         f.write(f"{field_name}: {value}\n")
 
+expense_test_file = "expensetest.json"
+
 try:
-    with open("expenese.json", "r") as j:
-        expenses = json.load(j)
+    with open(expense_test_file, "r") as j:
+        data = json.load(j)
         #json.load(j) = 
-except FileNotFoundError:
-    expenses = []
 except:
-    expenses = []
+    data = {"id_counter": 0, "expenses": []}
 
 def clear_entries():
     expense_description.delete(0, 'end') #from index 0 to end
@@ -38,10 +38,11 @@ def expense_record():
         new_expense['Expense Cost'] = expense_val 
         new_expense['Expense Date'] = expense_d
         new_expense['Comment'] = comment
-        
-        expenses.append(new_expense)
-        with open("expenese.json", "w") as f:
-            json.dump(expenses, f, indent =4)
+        new_expense['id'] = data["id_counter"]
+        data["id_counter"] += 1
+        data["expenses"].append(new_expense)
+        with open(expense_test_file, "w") as f:
+            json.dump(data, f, indent =4)
         expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} - {new_expense['Expense Cost']}$")
         
     clear_entries()
@@ -62,6 +63,7 @@ def expense_record():
 
 
 def delete_expense():
+    
     return
 
 root = tk.Tk()
@@ -116,7 +118,7 @@ expense_list = tk.Listbox(view_frame, selectmode="single", width=40)
 expense_list.pack(pady=2)
 
 #Inserting Exsisting Expenses to the list
-for expense in expenses:
+for expense in data["expenses"]:
     expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} - {expense['Expense Cost']}$")
 
 #Delete Button

@@ -2,16 +2,18 @@
     "id_counter": 2,
     "expenses": [
         {
-            "Expense Description": "Test",
-            "Expense Cost": 123.0,
+            "Expense Description": "Test 1",
+            "Expense Cost": 1234.0,
             "Expense Date": "08-25-25",
-            "Comment": ""
+            "Comment": "",
+            "id": 0
         },
         {
             "Expense Description": "Test 2",
-            "Expense Cost": 12321.0,
+            "Expense Cost": 1231.0,
             "Expense Date": "08-25-25",
-            "Comment": ""
+            "Comment": "",
+            "id": 1
         }
     ]
 }
