@@ -1,4 +1,12 @@
 {
-    "id_counter": 8,
-    "expenses": []
+    "id_counter": 10,
+    "expenses": [
+        {
+            "Expense Description": "Test Expense 1",
+            "Expense Cost": 200.0,
+            "Expense Date": "08-26-25",
+            "Comment": "This is a test expense",
+            "id": 8
+        }
+    ]
 }

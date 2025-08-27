@@ -1,0 +1,26 @@
+{
+    "id_counter": 3,
+    "expenses": [
+        {
+            "Expense Description": "Gas",
+            "Expense Cost": 20.0,
+            "Expense Date": "08-23-25",
+            "Comment": "162",
+            "id": 0
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 14.56,
+            "Expense Date": "08-23-25",
+            "Comment": "Donair",
+            "id": 1
+        },
+        {
+            "Expense Description": "Lunch + Dinner",
+            "Expense Cost": 22.0,
+            "Expense Date": "08-25-25",
+            "Comment": "Uber Eats Steve Poke Buy one Get One Free",
+            "id": 2
+        }
+    ]
+}

@@ -4,7 +4,7 @@ from modules import *
 #     for field_name, value in result_set.items():
 #         f.write(f"{field_name}: {value}\n")
 
-expense_test_file = "expensetest.json"
+expense_test_file = "Expenses_Ian.json"
 
 try:
     with open(expense_test_file, "r") as j:
@@ -23,7 +23,14 @@ def populate_list():
     expense_list.delete(0, tk.END)
     for expense in data["expenses"]:
         expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} - {expense['Expense Cost']}$")
-        
+
+def on_select(e):
+    selected_index = e.widget.curselection()
+    if selected_index:
+        index = selected_index[0] #because single select
+        selectedExpense = data["expenses"][index]
+        comment_label.config(text = f"{selectedExpense['Expense Description']} - {selectedExpense['Expense Cost']}$\n{selectedExpense['Comment']}")
+
 def write_to_file():
     with open(expense_test_file, "w") as f:
         json.dump(data, f, indent =4)
@@ -76,7 +83,7 @@ def delete_expense():
     selected_idx = expense_list.curselection()
     if selected_idx:
         index = selected_idx[0] #because curselection() returns a tuple (2, 3, 4) depending on the selection, and because we have set to single select. It will return only one but still in tuple. We need to grab the one that's returned
-        testlabel.config(text=f"{data["expenses"][index]["id"]}")
+        # testlabel.config(text=f"{data["expenses"][index]["id"]}") #Testing
         data["expenses"] = [e for e in data["expenses"] if e["id"] != data["expenses"][index]["id"] ]
         populate_list()
         write_to_file()
@@ -85,7 +92,7 @@ def delete_expense():
 
 root = tk.Tk()
 root.title('Expense Tracker')
-root.geometry('650x350')
+root.geometry('650x450')
 
 title_label = tk.Label(root, text="Expense Tracker", font=("Arial", 16))
 title_label.grid(row=0, column=0, columnspan=2, pady=10)
@@ -133,6 +140,7 @@ view_frame.grid(row=1, column=1, padx=20, pady=10, sticky="n")
 tk.Label(view_frame, text="Expenses").pack(pady=5)
 expense_list = tk.Listbox(view_frame, selectmode="single", width=40)
 expense_list.pack(pady=2)
+expense_list.bind("<<ListboxSelect>>", on_select) #bind the event <<ListboxSelect>> to on_select method
 
 #Inserting Exsisting Expenses to the list
 populate_list()
@@ -141,8 +149,8 @@ populate_list()
 delete_button = tk.Button(root, text="Delete",command = delete_expense, relief="raised")
 delete_button.place(x=435, y= 265, width=70, height=30)
 
-testlabel = tk.Label(root, text="Test Label")
-testlabel.grid(row=2, column=0, pady=5, padx=10)
+comment_label = tk.Label(root, text="")
+comment_label.grid(row=2, column=0, pady=5, padx=10)
 
 
 root.mainloop()
