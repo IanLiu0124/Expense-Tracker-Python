@@ -21,8 +21,9 @@ def clear_entries():
 
 def populate_list():
     expense_list.delete(0, tk.END)
+#test
 
-    sorted_expenses = sorted(data["expenses"], key=parse_date)
+    sorted_expenses = sorted(data["expenses"], key=parse_date) #Sorts the list by parse_date's output.
     data["expenses"] = sorted_expenses
     for expense in data["expenses"]:
         expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} - {expense['Expense Cost']}$")
