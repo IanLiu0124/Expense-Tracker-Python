@@ -21,6 +21,9 @@ def clear_entries():
 
 def populate_list():
     expense_list.delete(0, tk.END)
+
+    sorted_expenses = sorted(data["expenses"], key=parse_date)
+    data["expenses"] = sorted_expenses
     for expense in data["expenses"]:
         expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} - {expense['Expense Cost']}$")
 
@@ -60,7 +63,8 @@ def expense_record():
         # with open(expense_test_file, "w") as f:
         #     json.dump(data, f, indent =4)
         write_to_file()
-        expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} - {new_expense['Expense Cost']}$")
+        # expense_list.insert(tk.END, f"{new_expense['Expense Date']} | {new_expense['Expense Description']} - {new_expense['Expense Cost']}$")
+        populate_list()
         
     clear_entries()
     
@@ -88,6 +92,10 @@ def delete_expense():
         populate_list()
         write_to_file()
 
+#Sorting by date
+def parse_date(expense):
+    return datetime.datetime.strptime(expense["Expense Date"], "%m-%d-%y")
+#this returns datetime.datetime(yyyy, m, d, h, m) which when printed, %yyyy-%m-%d-%h-%m
 
 
 root = tk.Tk()
@@ -149,8 +157,15 @@ populate_list()
 delete_button = tk.Button(root, text="Delete",command = delete_expense, relief="raised")
 delete_button.place(x=435, y= 265, width=70, height=30)
 
-comment_label = tk.Label(root, text="")
-comment_label.grid(row=2, column=0, pady=5, padx=10)
+
+#The text displaying comment everytime user selects item from listbox
+#comment_label = tk.Label(root, text="", wraplength=250) #Wrap length wraps the text
+#comment_label.grid(row=2,rowspan=2, column=0, pady=5,padx=10)
+
+#Can also use Tk.message instead of using label. Tk.Message auto wraps text.
+comment_label = tk.Message(root, text="", width=250)
+comment_label.grid(row=2, rowspan=2, column=0, pady=5, padx=10)
+
 
 
 root.mainloop()

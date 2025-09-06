@@ -1,5 +1,5 @@
 {
-    "id_counter": 3,
+    "id_counter": 22,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -21,6 +21,97 @@
             "Expense Date": "08-25-25",
             "Comment": "Uber Eats Steve Poke Buy one Get One Free",
             "id": 2
+        },
+        {
+            "Expense Description": "Gas",
+            "Expense Cost": 50.0,
+            "Expense Date": "08-27-25",
+            "Comment": "164.9 Chevron right before MY chevron which was 161.. :(",
+            "id": 3
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 8.0,
+            "Expense Date": "08-27-25",
+            "Comment": "Chicken Sandwich from Burger King near Royal City Center (New West) - Buy one get one free UBER",
+            "id": 4
+        },
+        {
+            "Expense Description": "Racket String (2)",
+            "Expense Cost": 61.0,
+            "Expense Date": "08-27-25",
+            "Comment": "Racket String by Smash Champs at 28$ ea. +Tax. 3 Days. NOTE: Drop ins require membership",
+            "id": 5
+        },
+        {
+            "Expense Description": "RJ11 Cable Line",
+            "Expense Cost": 18.0,
+            "Expense Date": "08-27-25",
+            "Comment": "For Noble Paw Fax Line frfom Staple",
+            "id": 7
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 16.0,
+            "Expense Date": "08-29-25",
+            "Comment": "Yakisoba Woomi Sushi",
+            "id": 9
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 16.0,
+            "Expense Date": "08-30-25",
+            "Comment": "Paid 32 uber eat Pokebowl buy one get one free. Shared with Sophia",
+            "id": 10
+        },
+        {
+            "Expense Description": "Dinner",
+            "Expense Cost": 5.86,
+            "Expense Date": "09-02-25",
+            "Comment": "Mcdonalds before Badminton",
+            "id": 11
+        },
+        {
+            "Expense Description": "Parking Fee",
+            "Expense Cost": 5.5,
+            "Expense Date": "09-02-25",
+            "Comment": "Douglas Parking fee",
+            "id": 12
+        },
+        {
+            "Expense Description": "Dinner",
+            "Expense Cost": 7.5,
+            "Expense Date": "09-02-25",
+            "Comment": "Too Good To Go - Pizza Garden near Douglas",
+            "id": 13
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 23.0,
+            "Expense Date": "09-05-25",
+            "Comment": "Phochan #35",
+            "id": 14
+        },
+        {
+            "Expense Description": "Safeway",
+            "Expense Cost": 30.89,
+            "Expense Date": "09-05-25",
+            "Comment": "Lightbulb + drainage",
+            "id": 15
+        },
+        {
+            "Expense Description": "Gas",
+            "Expense Cost": 50.5,
+            "Expense Date": "09-05-25",
+            "Comment": "Gas(48) + Tire Pump (2.5)",
+            "id": 16
+        },
+        {
+            "Expense Description": "TNT",
+            "Expense Cost": 12.68,
+            "Expense Date": "09-05-25",
+            "Comment": "Snack gifts for Vicky",
+            "id": 17
         }
     ]
 }
