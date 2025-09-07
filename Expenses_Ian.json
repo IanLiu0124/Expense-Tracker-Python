@@ -1,5 +1,5 @@
 {
-    "id_counter": 22,
+    "id_counter": 23,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -112,6 +112,13 @@
             "Expense Date": "09-05-25",
             "Comment": "Snack gifts for Vicky",
             "id": 17
+        },
+        {
+            "Expense Description": "Bus",
+            "Expense Cost": 3.0,
+            "Expense Date": "09-06-25",
+            "Comment": "Saskatoon Bus",
+            "id": 22
         }
     ]
 }
