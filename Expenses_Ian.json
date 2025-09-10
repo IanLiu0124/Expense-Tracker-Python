@@ -1,5 +1,5 @@
 {
-    "id_counter": 23,
+    "id_counter": 27,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -119,6 +119,34 @@
             "Expense Date": "09-06-25",
             "Comment": "Saskatoon Bus",
             "id": 22
+        },
+        {
+            "Expense Description": "Bus",
+            "Expense Cost": 3.0,
+            "Expense Date": "09-07-25",
+            "Comment": "",
+            "id": 23
+        },
+        {
+            "Expense Description": "Bus",
+            "Expense Cost": 3.0,
+            "Expense Date": "09-07-25",
+            "Comment": "",
+            "id": 24
+        },
+        {
+            "Expense Description": "Uber",
+            "Expense Cost": 23.93,
+            "Expense Date": "09-08-25",
+            "Comment": "Uber from Vicky place to Airport",
+            "id": 25
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 23.0,
+            "Expense Date": "09-09-25",
+            "Comment": "All you can eat buffet at UoS",
+            "id": 26
         }
     ]
 }
