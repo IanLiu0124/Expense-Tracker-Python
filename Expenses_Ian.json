@@ -1,5 +1,5 @@
 {
-    "id_counter": 27,
+    "id_counter": 32,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -147,6 +147,41 @@
             "Expense Date": "09-09-25",
             "Comment": "All you can eat buffet at UoS",
             "id": 26
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 15.38,
+            "Expense Date": "09-14-25",
+            "Comment": "Woomi Sushi - Yakisoba",
+            "id": 27
+        },
+        {
+            "Expense Description": "Utility",
+            "Expense Cost": 206.0,
+            "Expense Date": "09-15-25",
+            "Comment": "Auto Insurance",
+            "id": 30
+        },
+        {
+            "Expense Description": "Lunch",
+            "Expense Cost": 20.22,
+            "Expense Date": "09-16-25",
+            "Comment": "Bubble World - \u9e7d\u9165\u96de\u7092\u98ef",
+            "id": 28
+        },
+        {
+            "Expense Description": "Utility",
+            "Expense Cost": 35.22,
+            "Expense Date": "09-17-25",
+            "Comment": "Fortis BC",
+            "id": 29
+        },
+        {
+            "Expense Description": "Bank",
+            "Expense Cost": 4.0,
+            "Expense Date": "09-19-25",
+            "Comment": "Monthly",
+            "id": 31
         }
     ]
 }
