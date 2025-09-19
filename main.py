@@ -5,7 +5,7 @@ from modules import *
 #         f.write(f"{field_name}: {value}\n")
 
 expense_test_file = "Expenses_Ian.json"
-
+total = 0
 
 try:
     with open(expense_test_file, "r") as j:
@@ -28,6 +28,7 @@ def populate_list():
     data["expenses"] = sorted_expenses
     for expense in data["expenses"]:
         expense_list.insert(tk.END, f"{expense['Expense Date']} | {expense['Expense Description']} - {expense['Expense Cost']}$")
+    calculate_total()
 
 def on_select(e):
     selected_index = e.widget.curselection()
@@ -41,11 +42,12 @@ def write_to_file():
         json.dump(data, f, indent =4)
     
 def calculate_total():
+    global total
     total = 0
     for expense in data["expenses"]:
         total += expense["Expense Cost"]
-
-    return total
+    total_cost_label.config(text =total)
+    
 
 
 def expense_record():
@@ -160,7 +162,7 @@ expense_list.pack(pady=2)
 expense_list.bind("<<ListboxSelect>>", on_select) #bind the event <<ListboxSelect>> to on_select method
 
 #Inserting Exsisting Expenses to the list
-populate_list()
+
 
 #Delete Button
 delete_button = tk.Button(root, text="Delete",command = delete_expense, relief="raised")
@@ -180,9 +182,10 @@ comment_label.grid(row=0, rowspan=2, column=0, pady=5, padx=10)
 total_frame = tk.Frame(root, bd= 0)
 total_frame.grid(row=7, column= 0)
 tk.Label(total_frame, text = "Total Expense : ").grid(row=0, column=0, sticky="w")
-total_cost = calculate_total()
-tk.Label(total_frame, text =total_cost).grid(row=0, column=1)
+total_cost_label = tk.Label(total_frame, text ="")
+total_cost_label.grid(row=0, column=1)
 
+populate_list()
 
 root.mainloop()
 

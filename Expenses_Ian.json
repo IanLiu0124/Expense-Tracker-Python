@@ -1,5 +1,5 @@
 {
-    "id_counter": 32,
+    "id_counter": 36,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -180,8 +180,8 @@
             "Expense Description": "Bank",
             "Expense Cost": 4.0,
             "Expense Date": "09-19-25",
-            "Comment": "Monthly",
-            "id": 31
+            "Comment": "",
+            "id": 35
         }
     ]
 }
