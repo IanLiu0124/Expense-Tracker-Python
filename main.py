@@ -6,6 +6,7 @@ from modules import *
 
 expense_test_file = "Expenses_Ian.json"
 
+
 try:
     with open(expense_test_file, "r") as j:
         data = json.load(j)
@@ -39,6 +40,13 @@ def write_to_file():
     with open(expense_test_file, "w") as f:
         json.dump(data, f, indent =4)
     
+def calculate_total():
+    total = 0
+    for expense in data["expenses"]:
+        total += expense["Expense Cost"]
+
+    return total
+
 
 def expense_record():
     if expense_description.get().strip() == "":
@@ -164,9 +172,16 @@ delete_button.place(x=435, y= 265, width=70, height=30)
 #comment_label.grid(row=2,rowspan=2, column=0, pady=5,padx=10)
 
 #Can also use Tk.message instead of using label. Tk.Message auto wraps text.
-comment_label = tk.Message(root, text="", width=250)
-comment_label.grid(row=2, rowspan=2, column=0, pady=5, padx=10)
+comment_frame = tk.Frame(root, bd =1)
+comment_frame.grid(row=3, rowspan=4, column=0, pady=5, padx=10)
+comment_label = tk.Message(comment_frame, text="", width=250)
+comment_label.grid(row=0, rowspan=2, column=0, pady=5, padx=10)
 
+total_frame = tk.Frame(root, bd= 0)
+total_frame.grid(row=7, column= 0)
+tk.Label(total_frame, text = "Total Expense : ").grid(row=0, column=0, sticky="w")
+total_cost = calculate_total()
+tk.Label(total_frame, text =total_cost).grid(row=0, column=1)
 
 
 root.mainloop()
