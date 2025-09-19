@@ -1,5 +1,5 @@
 {
-    "id_counter": 36,
+    "id_counter": 37,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -181,7 +181,7 @@
             "Expense Cost": 4.0,
             "Expense Date": "09-19-25",
             "Comment": "",
-            "id": 35
+            "id": 36
         }
     ]
 }
