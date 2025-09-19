@@ -148,8 +148,12 @@ expense_comment.grid(row=4, column=1, padx=5, pady=5, sticky="w")
 
 #record button
 add_button = tk.Button(root, text="Add", command=expense_record, relief="raised")
-add_button.place(x=125, y=240, width=70, height=30)
+add_button.place(x=85, y=245, width=70, height=30)
 
+
+#edit button
+edit_button = tk.Button(root, text= "Edit", command=(), relief="raised")
+edit_button.place(x = 170, y=245, width= 70, height=30)
 
 #expense list frame
 view_frame = tk.Frame(root, bd=2, relief="groove")
