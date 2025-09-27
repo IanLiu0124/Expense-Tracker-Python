@@ -109,6 +109,17 @@ def parse_date(expense):
 #this returns datetime.datetime(yyyy, m, d, h, m) which when printed, %yyyy-%m-%d-%h-%m
 
 
+def open_edit_window():
+    edit_window = tk.Toplevel(root)
+    edit_window.title("Edit")
+    edit_window.geometry("230x300")
+
+    edit_expense_frame = tk.Frame(edit_window, bd=2, relief="groove")
+    edit_expense_frame.grid(row=0, column=0, padx=20, pady=10, sticky="n")
+    tk.Label(edit_expense_frame, text= "Expense: ").grid(row=0, column=0, padx=5, pady=5, sticky="w")
+    
+    
+
 root = tk.Tk()
 root.title('Expense Tracker')
 root.geometry('650x450')
@@ -152,7 +163,7 @@ add_button.place(x=85, y=245, width=70, height=30)
 
 
 #edit button
-edit_button = tk.Button(root, text= "Edit", command=(), relief="raised")
+edit_button = tk.Button(root, text= "Edit", command=open_edit_window, relief="raised")
 edit_button.place(x = 170, y=245, width= 70, height=30)
 
 #expense list frame
