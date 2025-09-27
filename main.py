@@ -22,7 +22,6 @@ def clear_entries():
 
 def populate_list():
     expense_list.delete(0, tk.END)
-#test
 
     sorted_expenses = sorted(data["expenses"], key=parse_date) #Sorts the list by parse_date's output.
     data["expenses"] = sorted_expenses
@@ -46,10 +45,9 @@ def calculate_total():
     total = 0
     for expense in data["expenses"]:
         total += expense["Expense Cost"]
-    total_cost_label.config(text =total)
+    total = round(total, 2) #Rounds the total to .2 decimals
+    total_cost_label.config(text=f"{total}$")
     
-
-
 def expense_record():
     if expense_description.get().strip() == "":
         messagebox.showerror("Invalid Input", "Please enter description")
