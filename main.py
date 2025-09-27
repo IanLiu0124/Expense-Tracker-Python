@@ -108,13 +108,41 @@ def parse_date(expense):
 
 
 def open_edit_window():
-    edit_window = tk.Toplevel(root)
-    edit_window.title("Edit")
-    edit_window.geometry("230x300")
 
-    edit_expense_frame = tk.Frame(edit_window, bd=2, relief="groove")
-    edit_expense_frame.grid(row=0, column=0, padx=20, pady=10, sticky="n")
-    tk.Label(edit_expense_frame, text= "Expense: ").grid(row=0, column=0, padx=5, pady=5, sticky="w")
+
+    selected_idx = expense_list.curselection()
+    if selected_idx:
+        index = selected_idx[0]
+        
+        target_expense = data["expenses"][index]
+
+        edit_window = tk.Toplevel(root)
+        edit_window.title("Edit")
+        edit_window.geometry("500x200")
+        
+        edit_expense_frame = tk.Frame(edit_window, bd=2, relief="groove")
+        edit_expense_frame.grid(row=0, column=0, padx=20, pady=10, sticky="n")
+        tk.Label(edit_expense_frame, text= "Expense: ").grid(row=0, column=0, padx=5, pady=5, sticky="w")
+        new_expense_description = tk.Entry(edit_expense_frame, text=f"{target_expense['Expense Description']}", width=20)
+        new_expense_description.grid(row=0, column=1, padx=5, pady=5)
+        tk.Label(edit_expense_frame, text = "Amount: ").grid(row=1, column=0, padx=5, pady=5, sticky="w")
+        new_expense_amount = tk.Entry(edit_expense_frame, width=20)
+        new_expense_amount.grid(row=1, column=1, padx=5, pady=5)
+        tk.Label(edit_expense_frame, text="Date :").grid(row=3, column=0, padx=5, pady=5, sticky="w")
+        new_expense_date = DateEntry(edit_expense_frame, width= 20, date_pattern="mm-dd-yy")
+        new_expense_date.grid(row=3, column=1, padx=5, pady=5)
+
+        new_comment = tk.Text(edit_expense_frame, width=25, height=2)
+        new_comment.grid(row=4, rowspan=2, columnspan=2, pady=5, padx=10)
+
+        update_button = tk.Button(edit_expense_frame, text="Update")
+        update_button.grid(row=6, columnspan=2, padx=5, pady=5)
+
+        
+
+    else:
+        messagebox.showerror("Invalid Selection!", "Please select an expense")
+
     
     
 

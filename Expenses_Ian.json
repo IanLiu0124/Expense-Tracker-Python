@@ -1,5 +1,5 @@
 {
-    "id_counter": 40,
+    "id_counter": 41,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -185,6 +185,13 @@
         },
         {
             "Expense Description": "Lunch",
+            "Expense Cost": 6.56,
+            "Expense Date": "09-19-25",
+            "Comment": "Starbucks London Fog Venti",
+            "id": 39
+        },
+        {
+            "Expense Description": "Lunch",
             "Expense Cost": 14.16,
             "Expense Date": "09-20-25",
             "Comment": "Donair Chicken Bowl",
@@ -199,10 +206,10 @@
         },
         {
             "Expense Description": "Lunch",
-            "Expense Cost": 6.56,
-            "Expense Date": "09-19-25",
-            "Comment": "Starbucks London Fog Venti",
-            "id": 39
+            "Expense Cost": 15.38,
+            "Expense Date": "09-27-25",
+            "Comment": "Yakisoba from Woomi sushi",
+            "id": 40
         }
     ]
 }
