@@ -114,34 +114,73 @@ def open_edit_window():
     if selected_idx:
         index = selected_idx[0]
         
+        global target_expense 
         target_expense = data["expenses"][index]
 
+        global edit_window 
         edit_window = tk.Toplevel(root)
         edit_window.title("Edit")
-        edit_window.geometry("500x200")
+        edit_window.geometry("600x300")
         
         edit_expense_frame = tk.Frame(edit_window, bd=2, relief="groove")
         edit_expense_frame.grid(row=0, column=0, padx=20, pady=10, sticky="n")
-        tk.Label(edit_expense_frame, text= "Expense: ").grid(row=0, column=0, padx=5, pady=5, sticky="w")
-        new_expense_description = tk.Entry(edit_expense_frame, text=f"{target_expense['Expense Description']}", width=20)
-        new_expense_description.grid(row=0, column=1, padx=5, pady=5)
-        tk.Label(edit_expense_frame, text = "Amount: ").grid(row=1, column=0, padx=5, pady=5, sticky="w")
+
+        tk.Label(edit_expense_frame, text="Update Expanse").grid(row=0, column=0, columnspan=2, padx=5, pady=5, sticky="n")
+
+        tk.Label(edit_expense_frame, text= "Expense: ").grid(row=1, column=0, padx=5, pady=5, sticky="w")
+        global new_expense_description 
+        new_expense_description= tk.Entry(edit_expense_frame, text=f"{target_expense['Expense Description']}", width=20)
+        new_expense_description.grid(row=1, column=1, padx=5, pady=5)
+        tk.Label(edit_expense_frame, text = "Amount: ").grid(row=2, column=0, padx=5, pady=5, sticky="w")
+        global new_expense_amount
         new_expense_amount = tk.Entry(edit_expense_frame, width=20)
-        new_expense_amount.grid(row=1, column=1, padx=5, pady=5)
+        new_expense_amount.grid(row=2, column=1, padx=5, pady=5)
         tk.Label(edit_expense_frame, text="Date :").grid(row=3, column=0, padx=5, pady=5, sticky="w")
+        global new_expense_date 
         new_expense_date = DateEntry(edit_expense_frame, width= 20, date_pattern="mm-dd-yy")
         new_expense_date.grid(row=3, column=1, padx=5, pady=5)
 
+        global new_comment 
         new_comment = tk.Text(edit_expense_frame, width=25, height=2)
         new_comment.grid(row=4, rowspan=2, columnspan=2, pady=5, padx=10)
 
-        update_button = tk.Button(edit_expense_frame, text="Update")
+        update_button = tk.Button(edit_expense_frame, text="Update", command=update_expense)
         update_button.grid(row=6, columnspan=2, padx=5, pady=5)
 
+        old_expense_frame = tk.Frame(edit_window, bd=2, relief="groove")
+        old_expense_frame.grid(row=0, column= 1, columnspan=2, padx=20, pady=10, sticky="n")
+        tk.Label(old_expense_frame, text="Original Expense").grid(row=0, column=0, columnspan=2, padx=5, pady=5)
+        tk.Label(old_expense_frame, text=f"Expense: {target_expense['Expense Description']}").grid(row=1, column=0, padx=5, pady=5, sticky="w")
+        tk.Label(old_expense_frame, text=f"Amount: {target_expense['Expense Cost']}").grid(row=2, column=0, padx=5, pady=5, sticky="w")
+        tk.Label(old_expense_frame, text=f"Date: {target_expense['Expense Date']}").grid(row=3,column=0, padx=5, pady=5, sticky="w") 
+        tk.Message(old_expense_frame,text=f"{target_expense['Comment']}", width=250).grid(row=4, column=0, padx=5, pady=5, sticky="w")
         
 
     else:
         messagebox.showerror("Invalid Selection!", "Please select an expense")
+
+def update_expense():
+    if new_expense_description.get().strip() == "":
+        messagebox.showerror("Invalid Input", "Please enter description")
+    else:
+        new_expense_des = new_expense_description.get().strip()
+        try:
+            new_expense_val = float(new_expense_amount.get())
+        except ValueError:
+            messagebox.showerror("Invalid input", "Please enter a valid number for the amount.")
+            return
+        new_expense_d = new_expense_date.get()
+        new_expense_comment = new_comment.get("1.0","end").strip() or '' #the param ("1.0" = Line 1, character 0), 
+
+        target_expense['Expense Description'] = new_expense_des
+        target_expense['Expense Cost'] = new_expense_val
+        target_expense['Expense Date'] = new_expense_d
+        target_expense['Comment'] = new_expense_comment
+        
+        populate_list()
+        edit_window.destroy()
+    return
+
 
     
     
