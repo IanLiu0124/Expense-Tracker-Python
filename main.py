@@ -7,12 +7,20 @@ from modules import *
 expense_test_file = "Expenses_Ian.json"
 total = 0
 
+categories = {'Utility', 'Food', 'Entertainment', 'Shopping', 'Gas'}
+
 try:
     with open(expense_test_file, "r") as j:
         data = json.load(j)
+
+        for expense in data['expenses']:
+            if 'Expense Description' in expense:
+                categories.add(expense['Expense Description'])
         #json.load(j) = 
 except:
     data = {"id_counter": 0, "expenses": []}
+
+print(categories)
 
 def clear_entries():
     expense_description.delete(0, 'end') #from index 0 to end
@@ -217,7 +225,7 @@ date = DateEntry(expense_frame, width= 30, date_pattern="mm-dd-yy")
 date.grid(row=3, column=1, padx=5, pady=5)
 
 #Expense Comment
-tk.Label(expense_frame, text="Comment: ").grid(row=4, column=0, padx=5, pady=5, sticky="w")
+tk.Label(expense_frame, text="Comment: ", fg="blue").grid(row=4, column=0, padx=5, pady=5, sticky="w")
 expense_comment = tk.Text(expense_frame, width=25, height=2 )
 expense_comment.grid(row=4, column=1, padx=5, pady=5, sticky="w")
 
