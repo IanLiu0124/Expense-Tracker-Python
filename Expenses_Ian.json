@@ -1,5 +1,5 @@
 {
-    "id_counter": 45,
+    "id_counter": 46,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -219,6 +219,13 @@
             "id": 43
         },
         {
+            "Expense Description": "Gas",
+            "Expense Cost": 50.0,
+            "Expense Date": "09-27-25",
+            "Comment": "Gas at Shell",
+            "id": 44
+        },
+        {
             "Expense Description": "Food",
             "Expense Cost": 37.14,
             "Expense Date": "10-01-25",
@@ -226,11 +233,11 @@
             "id": 42
         },
         {
-            "Expense Description": "Gas",
-            "Expense Cost": 50.0,
-            "Expense Date": "09-27-25",
-            "Comment": "Gas at Shell",
-            "id": 44
+            "Expense Description": "Food",
+            "Expense Cost": 15.4,
+            "Expense Date": "10-02-25",
+            "Comment": "Lunch. Buy one get one free. Pork something. Shared with Cindy",
+            "id": 45
         }
     ]
 }
