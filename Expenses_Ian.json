@@ -1,5 +1,5 @@
 {
-    "id_counter": 45,
+    "id_counter": 61,
     "expenses": [
         {
             "Expense Description": "Gas",
@@ -219,6 +219,13 @@
             "id": 43
         },
         {
+            "Expense Description": "Gas",
+            "Expense Cost": 50.0,
+            "Expense Date": "09-27-25",
+            "Comment": "Gas at Shell",
+            "id": 44
+        },
+        {
             "Expense Description": "Food",
             "Expense Cost": 37.14,
             "Expense Date": "10-01-25",
@@ -226,11 +233,116 @@
             "id": 42
         },
         {
+            "Expense Description": "Investment",
+            "Expense Cost": 200.0,
+            "Expense Date": "10-02-25",
+            "Comment": "Wealth Simple Deposit",
+            "id": 48
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 9.02,
+            "Expense Date": "10-02-25",
+            "Comment": "Booster Juice - Banansaway",
+            "id": 55
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 14.16,
+            "Expense Date": "10-04-25",
+            "Comment": "Donair Lunch",
+            "id": 54
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 12.59,
+            "Expense Date": "10-07-25",
+            "Comment": "Uber",
+            "id": 47
+        },
+        {
             "Expense Description": "Gas",
-            "Expense Cost": 50.0,
-            "Expense Date": "09-27-25",
-            "Comment": "Gas at Shell",
-            "id": 44
+            "Expense Cost": 45.0,
+            "Expense Date": "10-07-25",
+            "Comment": "",
+            "id": 52
+        },
+        {
+            "Expense Description": "Transport",
+            "Expense Cost": 3.75,
+            "Expense Date": "10-07-25",
+            "Comment": "Parking @ New West station",
+            "id": 53
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 16.8,
+            "Expense Date": "10-08-25",
+            "Comment": "Uber",
+            "id": 46
+        },
+        {
+            "Expense Description": "Utility",
+            "Expense Cost": 141.06,
+            "Expense Date": "10-09-25",
+            "Comment": "Hydro Bill",
+            "id": 45
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 25.29,
+            "Expense Date": "10-13-25",
+            "Comment": "Poke Steve b1g1",
+            "id": 57
+        },
+        {
+            "Expense Description": "Entertainment",
+            "Expense Cost": 20.48,
+            "Expense Date": "10-14-25",
+            "Comment": "Demon Slayer Movie with Vicky",
+            "id": 49
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 33.87,
+            "Expense Date": "10-14-25",
+            "Comment": "Big way with Vicky",
+            "id": 50
+        },
+        {
+            "Expense Description": "Transport",
+            "Expense Cost": 3.75,
+            "Expense Date": "10-15-25",
+            "Comment": "Parking Fee @ big way",
+            "id": 51
+        },
+        {
+            "Expense Description": "Insurance",
+            "Expense Cost": 206.0,
+            "Expense Date": "10-15-25",
+            "Comment": "",
+            "id": 56
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 32.2,
+            "Expense Date": "10-15-25",
+            "Comment": "Dinner at Gobong88 with Noble",
+            "id": 58
+        },
+        {
+            "Expense Description": "Utility",
+            "Expense Cost": 29.1,
+            "Expense Date": "10-15-25",
+            "Comment": "Canadaian Tire for Caulk and Toilet Plug repair",
+            "id": 59
+        },
+        {
+            "Expense Description": "Food",
+            "Expense Cost": 15.38,
+            "Expense Date": "10-11-25",
+            "Comment": "Woomie Sushi - Yakisoba Lunch",
+            "id": 60
         }
     ]
 }
