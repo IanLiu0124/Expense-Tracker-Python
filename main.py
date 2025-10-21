@@ -23,7 +23,7 @@ except:
 print(categories)
 
 def clear_entries():
-    expense_description.delete(0, 'end') #from index 0 to end
+    expense_categories.delete(0, 'end') #from index 0 to end
     expense_cost.delete(0, 'end')
     date.set_date(datetime.date.today())
     expense_comment.delete("1.0", "end") #First line, index 0
@@ -57,10 +57,10 @@ def calculate_total():
     total_cost_label.config(text=f"{total}$")
     
 def expense_record():
-    if expense_description.get().strip() == "":
+    if expense_categories.get().strip() == "":
         messagebox.showerror("Invalid Input", "Please enter description")
     else:
-        expense_des = expense_description.get().strip()
+        expense_des = expense_categories.get().strip()
         try:
             expense_val = float(expense_cost.get())
         except ValueError:
@@ -84,7 +84,12 @@ def expense_record():
         populate_list()
         
     clear_entries()
-    
+
+def add_if_new(event=None):
+    value = expense_categories.get().strip()
+    if value and value not in categories:
+        categories.add(value)  # add to the set
+        expense_categories['values'] = sorted(categories)  # update combobox list
 
     # messagebox.showinfo('test', new_expense)
     
@@ -116,15 +121,12 @@ def parse_date(expense):
 
 
 def open_edit_window():
-
-
     selected_idx = expense_list.curselection()
     if selected_idx:
         index = selected_idx[0]
         
         global target_expense 
         target_expense = data["expenses"][index]
-
         global edit_window 
         edit_window = tk.Toplevel(root)
         edit_window.title("Edit")
@@ -137,16 +139,19 @@ def open_edit_window():
 
         tk.Label(edit_expense_frame, text= "Expense: ").grid(row=1, column=0, padx=5, pady=5, sticky="w")
         global new_expense_description 
-        new_expense_description= tk.Entry(edit_expense_frame, text=f"{target_expense['Expense Description']}", width=20)
+        new_expense_description= ttk.Combobox(edit_expense_frame, width=20, values=sorted(categories))
         new_expense_description.grid(row=1, column=1, padx=5, pady=5)
+        new_expense_description.set(f"{target_expense['Expense Description']}")
         tk.Label(edit_expense_frame, text = "Amount: ").grid(row=2, column=0, padx=5, pady=5, sticky="w")
         global new_expense_amount
         new_expense_amount = tk.Entry(edit_expense_frame, width=20)
         new_expense_amount.grid(row=2, column=1, padx=5, pady=5)
+        new_expense_amount.insert(0, f"{target_expense['Expense Cost']}")
         tk.Label(edit_expense_frame, text="Date :").grid(row=3, column=0, padx=5, pady=5, sticky="w")
         global new_expense_date 
         new_expense_date = DateEntry(edit_expense_frame, width= 20, date_pattern="mm-dd-yy")
         new_expense_date.grid(row=3, column=1, padx=5, pady=5)
+        new_expense_date
 
         global new_comment 
         new_comment = tk.Text(edit_expense_frame, width=25, height=2)
@@ -209,8 +214,12 @@ tk.Label(expense_frame, text="Add Expense").grid(row=0,columnspan=2, pady=8)
 
 #Expense Description
 tk.Label(expense_frame, text="Expense: ").grid(row=1, column=0,padx=5, pady= 5, sticky="w")
-expense_description = tk.Entry(expense_frame, width=30)
-expense_description.grid(row=1, column=1 , padx=5, pady=5)
+# expense_description = tk.Entry(expense_frame, width=30)
+# expense_description.grid(row=1, column=1 , padx=5, pady=5)
+#Combobox
+expense_categories = ttk.Combobox(expense_frame, values = sorted(categories), width=30)
+expense_categories.grid(row=1, column=1, padx=5, pady=5)
+
 
 #Expense Amount
 tk.Label(expense_frame, text="Amount: ").grid(row=2, column=0,padx=5, pady=5, sticky="w" )
