@@ -151,10 +151,11 @@ def open_edit_window():
         global new_expense_date 
         new_expense_date = DateEntry(edit_expense_frame, width= 20, date_pattern="mm-dd-yy")
         new_expense_date.grid(row=3, column=1, padx=5, pady=5)
-        new_expense_date
+        new_expense_date.set_date(f"{target_expense['Expense Date']}")
 
         global new_comment 
         new_comment = tk.Text(edit_expense_frame, width=25, height=2)
+        new_comment.insert("1.0", f"{target_expense['Comment']}")
         new_comment.grid(row=4, rowspan=2, columnspan=2, pady=5, padx=10)
 
         update_button = tk.Button(edit_expense_frame, text="Update", command=update_expense)
